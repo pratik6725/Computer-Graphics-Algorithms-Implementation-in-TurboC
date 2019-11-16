@@ -61,8 +61,15 @@ void main()
 int gm,gd=DETECT;
 initgraph(&gd,&gm,":C\\TurboC4\\TC\\BGI");
 float x1,y1,x2,y2;
-cout<<"Enter the 2 endpoints of the line:"<<endl;
-cin>>x1>>y1>>x2>>y2;
+cout<<"Enter the coordinates of the endpoints of the line:"<<endl;
+cout<<"x1=";
+cin>>x1;
+cout<<"y1=";
+cin>>y1;
+cout<<"x2=";
+cin>>x2;
+cout<<"y2=";
+cin>>y2;
 bresenham(x1,y1,x2,y2);
 getch();
 closegraph();

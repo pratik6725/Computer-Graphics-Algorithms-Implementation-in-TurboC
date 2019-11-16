@@ -30,7 +30,7 @@ switch(choice)
 	{
 		cout<<"Enter the coordinates of the endpoint of the diagonal: "<<endl;
 		cin>>x1>>y1>>x2>>y2;
-		cout<<"Enter the desired fill colour: "<<endl;
+		cout<<"Enter the desired fill colour (Numerical value): "<<endl;
 		cin>>fill_colour;
 		cleardevice();
 		rectangle(x1,y1,x2,y2);
@@ -43,7 +43,7 @@ switch(choice)
 		cin>>x1>>y1;
 		cout<<"Enter the desired radius: "<<endl;
 		cin>>radius;
-		cout<<"Enter the fill colour: "<<endl;
+		cout<<"Enter the fill colour (Numerical value): "<<endl;
 		cin>>fill_colour;
 		cleardevice();
 		circle(x1,y1,radius);

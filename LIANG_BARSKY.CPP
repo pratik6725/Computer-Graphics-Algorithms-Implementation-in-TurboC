@@ -26,10 +26,10 @@ for(int j=1;j<=4;j++)
 {
 	if(p[j]==0)
 	{
-		cout<<"Line is parallel to window"<<endl;
+		cout<<"Line is parallel to the window."<<endl;
 		if(q[i]<0)
 		{
-			cout<<"Line is lying outside. Hence rejected."<<endl;
+			cout<<"Line is lying outside the window. Hence rejected."<<endl;
 		}
 	}
 }
@@ -49,7 +49,7 @@ for(int k=1;k<=4;k++)
 }
 if(t1>t2)
 {
-	cout<<"Line is outside. Hence rejected"<<endl;
+	cout<<"Line is outside the window. Hence rejected."<<endl;
 }
 else
 {
@@ -71,16 +71,31 @@ clrscr();
 int gd=DETECT,gm;
 initgraph(&gd,&gm,"C:\\TurboC4\\TC\\BGI");
 float xmin,ymin,xmax,ymax;
-cout<<"Enter the coordinates of the top-left corner:"<<endl;
-cin>>xmin>>ymin;
-cout<<"Enter the coordinates of the bottom-right corner:"<<endl;
-cin>>xmax>>ymax;
-rectangle(xmin,ymin,xmax,ymax);
+cout<<"Enter the minimum window coordinates (Top-left):"<<endl;
+cout<<"xmin=";
+cin>>xmin;
+cout<<"ymin=";
+cin>>ymin;
+cout<<"Enter the maximum window coordinates (Bottom-right):"<<endl;
+cout<<"xmax=";
+cin>>xmax;
+cout<<"ymax=";
+cin>>ymax;
 float x1,y1,x2,y2;
-cout<<"Enter the 2 endpoints of the line:"<<endl;
-cin>>x1>>y1>>x2>>y2;
+cout<<"Enter the coordinates of the endpoints of the line:"<<endl;
+cout<<"x1=";
+cin>>x1;
+cout<<"y1=";
+cin>>y1;
+cout<<"x2=";
+cin>>x2;
+cout<<"y2=";
+cin>>y2;
+rectangle(xmin,ymin,xmax,ymax);
 line(x1,y1,x2,y2);
-delay(1000);
+delay(2000);
+cleardevice();
+rectangle(xmin,ymin,xmax,ymax);
 liang_barsky_function(xmin,ymin,xmax,ymax,x1,y1,x2,y2);
 getch();
 closegraph();
