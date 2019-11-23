@@ -1,4 +1,4 @@
-# CG-Algorithms-Easy-Implementation-in-C
+# CG-Algorithms-Easy-Implementation-in-TurboC
 
 > ### List Of Algorithms Included:
 
