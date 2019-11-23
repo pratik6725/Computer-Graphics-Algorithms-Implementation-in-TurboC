@@ -1,40 +1,66 @@
-#include<iostream.h>
-#include<conio.h>
 #include<stdio.h>
-#include<stdlib.h>
+#include<conio.h>
 #include<graphics.h>
+#include<iostream.h>
 #include<math.h>
 
-void bezier(int x[4],int y[4])
+
+void bezier(int,int[],int[]);
+float binomial(float,int,int);
+float fact(int x);
+float ncr(int n,int i);
+
+void bezier(int n,int x[],int y[])
 {
+float u=0,sum_x,sum_y,temp_x,temp_y;
 int i;
-double u;
-for(u=0.0;u<1.0;u+=0.0005)
+while(u<=1)
 {
-	double xu=x[0]*pow(1-u,3)+x[1]*3*u*pow(1-u,2)+x[2]*3*u*u*(1-u)+x[3]*pow(u,3);
-	double yu=y[0]*pow(1-u,3)+y[1]*3*u*pow(1-u,2)+y[2]*3*u*u*(1-u)+y[3]*pow(u,3);
-	putpixel(xu,yu,WHITE);
+sum_x=0;
+sum_y=0;
+for(i=0;i<n;i++)
+{
+temp_x=x[i]*binomial(u,i,n);
+sum_x+=temp_x;
+temp_y=y[i]*binomial(u,i,n);
+sum_y+=temp_y;
+}
+putpixel((int)sum_x,(int)sum_y,3);
+u+=0.0001;
+}
 }
 
-for(i=0;i<4;i++)
+float binomial(float u,int i,int n)
 {
-	putpixel(x[i],y[i],RED);
+float coeff=0;
+coeff=ncr(n,i)*pow(u,i)*pow(1-u,n-i-1);
+return coeff;
 }
+
+float ncr(int n,int i)
+{
+float calc=0;
+calc=fact(n-1)/(fact(i)*fact(n-i-1));
+return calc;
+}
+
+float fact(int x)
+{
+float f=1;
+int i=1;
+for(i=1;i<=x;i++)
+f*=i;
+return f;
 }
 
 void main()
 {
+clrscr();
 int gd=DETECT,gm;
 initgraph(&gd,&gm,"C:\\TurboC4\\TC\\BGI");
-int x[4],y[4];
-cout<<"Enter the X,Y co-ordinates of the 4 control points:"<<endl;
-for(int i=0;i<4;i++)
-{
-	cout<<"Control point "<<i+1<<": ";
-	cin>>x[i]>>y[i];
-}
-cleardevice();
-bezier(x,y);
+int x[4]={420,220,220,420};
+int y[4]={185,155,225,195};
+bezier(4,x,y);
 getch();
 closegraph();
 }
